@@ -1,0 +1,26 @@
+
+name: My First GitHub Action
+
+on:
+  push:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check Python version
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run a test
+        run: |
+          python --version
+          echo "Hello! GitHub Actions is working!"
