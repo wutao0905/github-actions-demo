@@ -31,3 +31,17 @@ jobs:
       - name: Run Pytest
         run: |
           pytest -v
+
+
+      - name: Create Artifact
+        run: |
+          mkdir -p build
+          echo "Hello! This is my first CI/CD artifact." > build/deployment.txt
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-first-artifact
+          path: build/
+
+
